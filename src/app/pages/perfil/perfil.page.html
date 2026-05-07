@@ -1,13 +1,75 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ usuario.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ usuario.email }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="profile-info">
+        <p>
+          <strong>Rol:</strong>
+          {{ usuario.rol }}
+        </p>
+
+        <p>
+          <strong>Teléfono:</strong>
+          {{ usuario.telefono }}
+        </p>
+
+        <p>
+          <strong>Entidad:</strong>
+          {{ usuario.entidad }}
+        </p>
+
+        <p>
+          <strong>Tipo de entidad:</strong>
+          {{ usuario.tipoEntidad }}
+        </p>
+      </div>
+
+      <ion-button expand="block" fill="outline">
+        Editar perfil
+      </ion-button>
+
+      <ion-button expand="block" color="danger" fill="outline" routerLink="/login">
+        Cerrar sesión
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumen de actividad</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="summary-grid">
+        <div>
+          <strong>3</strong>
+          <span>Pedidos</span>
+        </div>
+
+        <div>
+          <strong>2</strong>
+          <span>Productos</span>
+        </div>
+
+        <div>
+          <strong>1</strong>
+          <span>Reservas</span>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" fill="clear" routerLink="/catalogo">
+    Volver al catálogo
+  </ion-button>
 </ion-content>

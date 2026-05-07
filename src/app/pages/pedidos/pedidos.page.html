@@ -1,13 +1,82 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>pedidos</ion-title>
+    <ion-title>Pedidos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pedidos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="header-box">
+    <h2>Planificación de pedidos</h2>
+    <p>
+      Gestiona pedidos por lotes y consulta el estado del suministro agrícola.
+    </p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo pedido</ion-card-title>
+      <ion-card-subtitle>
+        Simulación inicial de planificación de compra.
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Producto</ion-label>
+        <ion-select placeholder="Selecciona producto">
+          <ion-select-option value="tomate">Tomate local</ion-select-option>
+          <ion-select-option value="lechuga">Lechuga ecológica</ion-select-option>
+          <ion-select-option value="papa">Papa del país</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Cantidad necesaria</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fecha de entrega prevista</ion-label>
+        <ion-input type="date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Observaciones</ion-label>
+        <ion-textarea rows="3"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" class="order-button">
+        Crear pedido
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <h3>Historial de pedidos</h3>
+
+  <ion-card *ngFor="let pedido of pedidos">
+    <ion-card-header>
+      <ion-card-title>{{ pedido.clienteNombre }}</ion-card-title>
+      <ion-card-subtitle>
+        Entrega prevista: {{ pedido.fechaEntregaPrevista }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        <strong>Entidad:</strong>
+        {{ pedido.entidad }}
+      </p>
+
+      <p>
+        <strong>Total:</strong>
+        {{ pedido.total }} €
+      </p>
+
+      <ion-badge color="warning">{{ pedido.estado }}</ion-badge>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" fill="clear" routerLink="/catalogo">
+    Volver al catálogo
+  </ion-button>
 </ion-content>

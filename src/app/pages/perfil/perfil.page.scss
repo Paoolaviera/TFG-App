@@ -1,0 +1,35 @@
+ion-card {
+  border-radius: 16px;
+}
+
+.profile-info p {
+  margin: 10px 0;
+}
+
+.profile-info strong {
+  color: #2f6b3f;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  text-align: center;
+}
+
+.summary-grid div {
+  background: #f4f8f3;
+  border-radius: 14px;
+  padding: 16px 8px;
+}
+
+.summary-grid strong {
+  display: block;
+  font-size: 24px;
+  color: #2f6b3f;
+}
+
+.summary-grid span {
+  font-size: 13px;
+  color: #5f6f61;
+}

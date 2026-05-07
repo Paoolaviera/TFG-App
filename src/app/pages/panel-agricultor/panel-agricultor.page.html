@@ -1,13 +1,68 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>panel-agricultor</ion-title>
+    <ion-title>Panel agricultor</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">panel-agricultor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="header-box">
+    <h2>Gestión de productos</h2>
+    <p>
+      Desde este panel el agricultor puede gestionar los productos disponibles
+      para la restauración colectiva.
+    </p>
+  </div>
+
+  <ion-button expand="block" routerLink="/producto-form">
+    Añadir nuevo producto
+  </ion-button>
+
+  <ion-card *ngFor="let producto of productos">
+    <ion-card-header>
+      <ion-card-title>{{ producto.nombre }}</ion-card-title>
+      <ion-card-subtitle>
+        Lote: {{ producto.lote || 'Sin lote asignado' }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ producto.descripcion }}</p>
+
+      <div class="info-grid">
+        <div>
+          <strong>Cantidad</strong>
+          <span>{{ producto.cantidadDisponible }} {{ producto.unidad }}</span>
+        </div>
+
+        <div>
+          <strong>Precio</strong>
+          <span>{{ producto.precio }} €/{{ producto.unidad }}</span>
+        </div>
+
+        <div>
+          <strong>Disponible desde</strong>
+          <span>{{ producto.fechaDisponibilidad }}</span>
+        </div>
+
+        <div>
+          <strong>Estado</strong>
+          <ion-badge color="success">{{ producto.estado }}</ion-badge>
+        </div>
+      </div>
+
+      <div class="actions">
+        <ion-button size="small" fill="outline" routerLink="/producto-form">
+          Editar
+        </ion-button>
+
+        <ion-button size="small" color="danger" fill="outline">
+          Eliminar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" fill="clear" routerLink="/catalogo">
+    Volver al catálogo
+  </ion-button>
 </ion-content>
