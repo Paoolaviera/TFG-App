@@ -1,13 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crear cuenta</ion-card-title>
+      <ion-card-subtitle>
+        Regístrate como agricultor o entidad de restauración colectiva.
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre completo</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo de usuario</ion-label>
+        <ion-select placeholder="Selecciona un rol">
+          <ion-select-option value="agricultor">Agricultor</ion-select-option>
+          <ion-select-option value="restauracion">
+            Restauración colectiva
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" class="register-button" routerLink="/catalogo">
+        Registrarme
+      </ion-button>
+
+      <ion-button fill="clear" expand="block" routerLink="/login">
+        Ya tengo cuenta
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

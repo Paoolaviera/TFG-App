@@ -1,0 +1,24 @@
+.welcome-box {
+  margin-bottom: 20px;
+}
+
+.welcome-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2f6b3f;
+}
+
+.welcome-box p {
+  color: #5f6f61;
+}
+
+ion-card {
+  border-radius: 16px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+  font-weight: 600;
+}
